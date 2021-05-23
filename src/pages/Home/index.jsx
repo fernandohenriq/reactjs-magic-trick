@@ -17,6 +17,7 @@ const styles = {
 }
 
 function Home() {
+
   return(
     <Container id="home">
       <Row style={ styles.main }>

@@ -35,11 +35,11 @@ function Footer() {
           </Link>
 
           <Link to="https://gitlab.com/fernandohenriq" style={styles.link}>
-            <i class="fa fa-gitlab" aria-hidden="true"></i>
+            <i className="fa fa-gitlab" aria-hidden="true"></i>
           </Link>
 
           <Link to="https://www.linkedin.com/in/fernando-henrique-silva-ba81a1b1/" style={styles.link}>
-            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            <i className="fa fa-linkedin-square" aria-hidden="true"></i>
           </Link>
         </Row>
       </Column>

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { deckActions } from '../../store/actions/deckActions';
+
 import { Container, Row, Column } from '../../components/Grid';
 import Button from '../../components/Button';
-
 import deckEmpty from '../../assets/images/deck_empty.png';
 import deckFull from '../../assets/images/deck_full.png';
 
@@ -36,22 +39,25 @@ const styles = {
   },
 }
 
-const Dialog = 'Teste';
-
 function SelectCard() {
+  
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.deckReducers.loading);
 
-  const [deck, setDeck] = useState(deckFull);
-
-  const [dialog, setDialog] = useState('Escolha uma carta, memorize-a e aperte em continuar');
-
+  const [dialog, setDialog] = useState('Carregando...');
+  
   useEffect(() => {
-    
-  }, [])
+    dispatch(deckActions.createNewDeck())
+    .then((res) => {
+      
+    })
+    setDialog('Escolha uma carta, memorize-a e aperte em continuar');
+  }, []);
 
   return(
     <Container id="select-card">
       <Row style={{ ...styles.center, ...styles.deckPlace }}>
-        <img src={deck} alt="Deck" />
+        <img src={deckFull} alt="Deck" />
       </Row>
       <Row style={{ ...styles.center, ...styles.discartPlace }}>
         <img src={deckEmpty} alt="Deck" />
@@ -59,7 +65,7 @@ function SelectCard() {
       <Row style={{ ...styles.center, ...styles.dialogText }}>
         <Column>
           <Row style={styles.center}>
-            <p>{ dialog }</p>
+            <p>{ loading ? "carregando..." : dialog }</p>
           </Row>
           <Row style={styles.center}>
             <Button>Continuar</Button>

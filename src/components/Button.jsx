@@ -22,11 +22,13 @@ const ButtonStyled = styled.div`
 `;
 
 const Button = props => {
-  return <ButtonStyled>
-    <button {...props}>
-      {props.children}
-    </button>
-  </ ButtonStyled>
+  return ( 
+    <ButtonStyled>
+      <button {...props}>
+        {props.children}
+      </button>
+    </ ButtonStyled>
+  )
 }
 
 export default Button;
