@@ -1,7 +1,10 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import { Container, Row, Column } from './Grid';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
+import { deckActions } from '../store/actions/deckActions';
+
+import { Container, Row } from './Grid';
 import logo from '../assets/images/logo_1.png';
 
 const styles = {
@@ -13,6 +16,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
+    cursor: 'pointer',
   },
   icon: {
     fontSize: '4rem',
@@ -26,14 +30,17 @@ const styles = {
 
 function Header() {
   let history = useHistory();
+  const dispatch = useDispatch();
+
+  const reset = () => {
+    dispatch(deckActions.reset());
+    history.push('/');
+  }
 
   return(
     <Container style={ styles.header }>
-      <Row style={ styles.center }>
-        <Link to="/" style={ styles.logoText }>
-          {/* <span>Magic Trick App</span> */}
+      <Row onClick={() => reset()} style={ styles.center }>
           <img src={logo} alt="Logo" />
-        </Link>
       </Row>
     </Container>
   );
