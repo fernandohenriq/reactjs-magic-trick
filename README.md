@@ -7,7 +7,7 @@
 `npm start`
 
 ## What does it do?
-- The deck and pile system from API (https://deckofcardsapi.com)
+- Use the deck and pile system from API (https://deckofcardsapi.com)
 - The deck id is stored in the localstorage
 - The deck ID expires in 14 days
 - The correct card is shown at the end
