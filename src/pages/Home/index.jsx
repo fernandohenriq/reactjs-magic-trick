@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container, Row, Column } from '../../components/Grid';
+import { Container, Row } from '../../components/Grid';
 import Button from '../../components/Button';
 
 import './styles.css';
 
 const styles = {
   main: {
-    height: '100%',
+    height: '65%',
     display: 'flex',
     justifyContent: 'center',
     justifyItems: 'center',
@@ -20,12 +20,10 @@ function Home() {
 
   return(
     <Container id="home">
-      <Row style={ styles.main }>
-        <Column col='12' style={ styles.main }>
+      <Row style={styles.main}>
           <Link to='/selectCard'>
-            <Button>Começar</Button>
+            <Button size={2}>Começar</Button>
           </Link>
-        </Column>
       </Row>
     </Container>
   );
